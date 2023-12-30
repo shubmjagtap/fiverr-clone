@@ -1,3 +1,5 @@
+import "./app.scss";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
@@ -11,12 +13,8 @@ import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import "./app.scss";
-
 
 function App() {
-
   const Layout = () => {
     return (
       <div className="app">
@@ -41,7 +39,7 @@ function App() {
           element: <Gigs />,
         },
         {
-          path: "/mygigs",
+          path: "/myGigs",
           element: <MyGigs />,
         },
         {
@@ -64,15 +62,19 @@ function App() {
           path: "/gig/:id",
           element: <Gig />,
         },
-      ]
-    }
+      ],
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
